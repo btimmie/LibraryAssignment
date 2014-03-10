@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.branwyn.library.model;
 
 import org.testng.Assert;
@@ -19,11 +18,28 @@ import org.testng.annotations.Test;
  * @author Branwyn
  */
 public class AuthorNGTest {
-    
+
     public AuthorNGTest() {
     }
-    
-    
+
+    @Test
+    public void creation() throws Exception {
+        Author a = new Author.Builder(15).id("2541").firstName("Clive").lastName("Barker").build();
+        Assert.assertEquals(a.getNumberOfPublications(), 15);
+        Assert.assertEquals(a.getId(), "2541");
+        Assert.assertEquals(a.getFirstName(), "Clive");
+        Assert.assertEquals(a.getLastName(), "Barker");
+    }
+
+    @Test
+    public void update() throws Exception {
+        Author newA = new Author.Builder(15).id("2541").firstName("Steve").lastName("Bruce").build();
+        Assert.assertEquals(newA.getNumberOfPublications(), 15);
+        Assert.assertEquals(newA.getId(), "2541");
+        Assert.assertEquals(newA.getFirstName(), "Steve");
+        Assert.assertEquals(newA.getLastName(), "Bruce");
+
+    }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -40,14 +56,4 @@ public class AuthorNGTest {
     @AfterMethod
     public void tearDownMethod() throws Exception {
     }
-
-    @Test
-    public void creation() throws Exception{
-       Author a = new Author.Builder(15).id("2541").firstName("Clive").lastName("Barker").build();
-       Assert.assertEquals(a.getNumberOfPublications(),15);
-       Assert.assertEquals(a.getId(), "2541");
-       Assert.assertEquals(a.getFirstName(), "Clive");
-       Assert.assertEquals(a.getLastName(), "Barker");
-    }
-    
 }

@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package com.branwyn.library.model;
+package com.branwyn.library.model.payment;
 
 /**
  *
  * @author Branwyn
  */
-public class Credit extends Payment{
-    
+public interface Payment {
+    public String getID();
+    public int getAmount();
 }

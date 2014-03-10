@@ -1,25 +1,26 @@
-package com.branwyn.library.model;
+package com.branwyn.library.model.employee;
 
+import com.branwyn.library.model.Order;
 import java.util.List;
 
 /**
  *
  * @author Branwyn
  */
-public final class Supplier {
+public final class Librarian implements Employee {
 
     private String id;
     private String name;
-    private List<Book> books;
+    private List<Order> orders;
 
-    private Supplier() {
+    private Librarian() {
 
     }
 
-    private Supplier(Builder builder) {
+    private Librarian(Builder builder) {
         id = builder.id;
         name = builder.name;
-        books = builder.books;
+        orders = builder.orders;
 
     }
 
@@ -27,11 +28,10 @@ public final class Supplier {
 
         private String id;
         private String name;
-        private List<Book> books;
+        private List<Order> orders;
 
         public Builder(String id) {
             this.id = id;
-            
         }
 
         public Builder name (String name) {
@@ -39,14 +39,13 @@ public final class Supplier {
             return this;
         }
 
-        public Builder(List<Book> books) {
-            this.books = books;
+        public Builder(List<Order> orders) {
+            this.orders = orders;
         }
 
-        public Supplier build() {
-            return new Supplier(this);
+        public Librarian build() {
+            return new Librarian(this);
         }
-
     }
 
     public String getId() {
@@ -57,14 +56,14 @@ public final class Supplier {
         return name;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + (this.id != null ? this.id.hashCode() : 0);
+        int hash = 3;
+        hash = 97 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -76,10 +75,12 @@ public final class Supplier {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Supplier other = (Supplier) obj;
+        final Librarian other = (Librarian) obj;
         if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
             return false;
         }
         return true;
     }
+    
+
 }

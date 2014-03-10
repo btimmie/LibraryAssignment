@@ -1,56 +1,56 @@
-package com.branwyn.library.model;
+package com.branwyn.library.model.payment;
 
 /**
  *
  * @author Branwyn
  */
-public final class Search {
+public final class Credit implements Payment {
 
     private String id;
-    private String bookName;
+    private int amount;
 
-    private Search() {
+    private Credit() {
 
     }
 
-    private Search(Builder builder) {
+    private Credit(Builder builder) {
         id = builder.id;
-        bookName = builder.bookName;
+        amount = builder.amount;
+
     }
 
     public static class Builder {
 
         private String id;
-        private String bookName;
+        private int amount;
 
-        public Builder (String value) {
-            id = value;
-            //return this;
+        public Builder(String id) {
+            this.id = id;
         }
 
-        public Builder bookName(String bookname) {
-            this.bookName = bookname;
+        public Builder amount(int amount) {
+            this.amount = amount;
             return this;
         }
 
-        public Search build() {
-            return new Search(this);
+        public Credit build() {
+            return new Credit(this);
         }
 
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public String getBookName() {
-        return bookName;
+    public int getAmount() {
+        return amount;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + (this.id != null ? this.id.hashCode() : 0);
+        int hash = 5;
+        hash = 23 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -62,7 +62,7 @@ public final class Search {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Search other = (Search) obj;
+        final Credit other = (Credit) obj;
         if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
             return false;
         }

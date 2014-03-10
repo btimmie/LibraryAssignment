@@ -1,25 +1,21 @@
-package com.branwyn.library.model;
-
-import java.util.List;
+package com.branwyn.library.model.section;
 
 /**
  *
  * @author Branwyn
  */
-public final class Supplier {
+public final class Business implements Section {
 
     private String id;
     private String name;
-    private List<Book> books;
 
-    private Supplier() {
+    private Business() {
 
     }
 
-    private Supplier(Builder builder) {
+    private Business(Builder builder) {
         id = builder.id;
         name = builder.name;
-        books = builder.books;
 
     }
 
@@ -27,24 +23,18 @@ public final class Supplier {
 
         private String id;
         private String name;
-        private List<Book> books;
 
-        public Builder(String id) {
+        public Builder id(String id) {
             this.id = id;
-            
-        }
-
-        public Builder name (String name) {
-            this.name = name;
             return this;
         }
 
-        public Builder(List<Book> books) {
-            this.books = books;
+        public Builder(String name) {
+            this.name = name;
         }
 
-        public Supplier build() {
-            return new Supplier(this);
+        public Business build() {
+            return new Business(this);
         }
 
     }
@@ -55,16 +45,13 @@ public final class Supplier {
 
     public String getName() {
         return name;
-    }
 
-    public List<Book> getBooks() {
-        return books;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + (this.id != null ? this.id.hashCode() : 0);
+        int hash = 7;
+        hash = 89 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -76,10 +63,13 @@ public final class Supplier {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Supplier other = (Supplier) obj;
+        final Business other = (Business) obj;
         if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
             return false;
         }
         return true;
     }
+    
+    
+
 }

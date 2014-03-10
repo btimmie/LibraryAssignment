@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.branwyn.library.model;
+package com.branwyn.library.model.books;
 
-import java.util.List;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -18,26 +17,22 @@ import org.testng.annotations.Test;
  *
  * @author Branwyn
  */
-public class MemberNGTest {
+public class MagazineNGTest {
 
-    public MemberNGTest() {
+    public MagazineNGTest() {
     }
 
     @Test
     public void creation() throws Exception {
-        Member m = new Member.Builder("Branwyn").lastName("Timmie").id("1254").age(20).build();
-        Assert.assertEquals(m.getFirstName(), "Branwyn");
-        Assert.assertEquals(m.getLastName(), "Timmie");
-        Assert.assertEquals(m.getId(), "1254");
-        Assert.assertEquals(m.getAge(), 20);
+        Magazine m = new Magazine.Builder("999").name("YOU").build();
+        Assert.assertEquals(m.getId(), "999");
+        Assert.assertEquals(m.getName(), "YOU");
     }
 
     @Test
     public void update() throws Exception {
-        Member newM = new Member.Builder("Frank").lastName("Lampard").id("1254").age(35).build();
-        Assert.assertEquals(newM.getFirstName(), "Frank");
-        Assert.assertEquals(newM.getLastName(), "Lampard");
-        Assert.assertEquals(newM.getAge(), 35);
+        Magazine newM = new Magazine.Builder("999").name("Huis genoot").build();
+        Assert.assertEquals(newM.getName(), "Huis genoot");
     }
 
     @BeforeClass

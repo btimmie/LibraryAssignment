@@ -1,5 +1,6 @@
 package com.branwyn.library.model;
 
+import com.branwyn.library.model.section.Section;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public final class Book {
     private int publicationYear;
     private List<Supplier> suppliers;
     private List<Author> authors;
+    private List<Section> sections;
 
     private Book() {
     }
@@ -23,6 +25,7 @@ public final class Book {
         publicationYear = builder.publicationYear;
         suppliers = builder.suppliers;
         authors = builder.authors;
+        sections= builder.sections;
     }
 
     public static class Builder {
@@ -32,6 +35,7 @@ public final class Book {
         private int publicationYear;
         private List<Supplier> suppliers;
         private List<Author> authors;
+        private List<Section> sections;
 
         public Builder(String title) {
             this.title = title;
@@ -56,6 +60,13 @@ public final class Book {
             this.authors = authors;
             return this;
         }
+
+        public Builder sections(List<Section> sections) {
+            this.sections = sections;
+            return this;
+        }
+        
+        
 
         public Book build() {
             return new Book(this);

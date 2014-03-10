@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.branwyn.library.model;
 
-import java.util.List;
+package com.branwyn.library.model.section;
+
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -18,28 +18,25 @@ import org.testng.annotations.Test;
  *
  * @author Branwyn
  */
-public class MemberNGTest {
-
-    public MemberNGTest() {
+public class EngineeringNGTest {
+    
+    public EngineeringNGTest() {
     }
-
+    
     @Test
-    public void creation() throws Exception {
-        Member m = new Member.Builder("Branwyn").lastName("Timmie").id("1254").age(20).build();
-        Assert.assertEquals(m.getFirstName(), "Branwyn");
-        Assert.assertEquals(m.getLastName(), "Timmie");
-        Assert.assertEquals(m.getId(), "1254");
-        Assert.assertEquals(m.getAge(), 20);
+    public void creation() throws Exception{
+        Engineering eng = new Engineering.Builder("Engineering basics").id("654654").build();
+        Assert.assertEquals(eng.getName(), "Engineering basics");
+        Assert.assertEquals(eng.getId(), "654654");
     }
-
+    
     @Test
-    public void update() throws Exception {
-        Member newM = new Member.Builder("Frank").lastName("Lampard").id("1254").age(35).build();
-        Assert.assertEquals(newM.getFirstName(), "Frank");
-        Assert.assertEquals(newM.getLastName(), "Lampard");
-        Assert.assertEquals(newM.getAge(), 35);
+    public void update() throws Exception{
+        Engineering newEng = new Engineering.Builder("Engineering basics").id("852456").build();
+        Assert.assertEquals(newEng.getName(), "Engineering basics");
+        Assert.assertEquals(newEng.getId(), "852456");
     }
-
+    
     @BeforeClass
     public static void setUpClass() throws Exception {
     }
@@ -56,4 +53,5 @@ public class MemberNGTest {
     public void tearDownMethod() throws Exception {
     }
 
+   
 }

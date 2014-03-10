@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-package com.branwyn.library.model;
+package com.branwyn.library.model.employee;
 
 /**
  *
  * @author Branwyn
  */
-public class Journal{
+public interface Employee {
+    public String getId();
+    public String getName();
     
 }

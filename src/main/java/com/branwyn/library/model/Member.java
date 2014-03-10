@@ -1,5 +1,6 @@
 package com.branwyn.library.model;
 
+import com.branwyn.library.model.payment.Payment;
 import java.util.List;
 
 /**
@@ -13,6 +14,8 @@ public final class Member {
     private String lastName;
     private int age;
     private List<Book> books;
+    private List<Search> searchBook;
+    private List<Payment> payments;
 
     private Member() {
     }
@@ -23,6 +26,8 @@ public final class Member {
         lastName = builder.lastName;
         age = builder.age;
         books = builder.books;
+        searchBook=builder.searchBook;
+        payments=builder.payments;
 
     }
 
@@ -33,6 +38,8 @@ public final class Member {
         private String lastName;
         private int age;
         private List<Book> books;
+        private List<Search> searchBook;
+        private List<Payment> payments;
 
         public Builder(String value) {
             firstName = value;
@@ -40,7 +47,7 @@ public final class Member {
         }
 
         public Builder id(String value) {
-            this.id = id;
+            id = value;
             return this;
         }
 
@@ -58,6 +65,19 @@ public final class Member {
             books = value;
             return this;
         }
+
+        public Builder searchBook (List<Search> value) {
+            searchBook = value;
+            return this;
+        }
+
+        public Builder payments(List<Payment> payments) {
+            this.payments = payments;
+            return this;
+        }
+        
+        
+        
 
         public Member build() {
             return new Member(this);
@@ -83,6 +103,12 @@ public final class Member {
     public List<Book> getBooks() {
         return books;
     }
+
+    public List<Search> getSearchBook() {
+        return searchBook;
+    }
+    
+    
     
     
 

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.branwyn.library.model;
 
-import java.util.List;
-import org.testng.Assert;
+package com.branwyn.library.model.section;
+
+import org.junit.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -18,26 +18,23 @@ import org.testng.annotations.Test;
  *
  * @author Branwyn
  */
-public class MemberNGTest {
-
-    public MemberNGTest() {
+public class LawNGTest {
+    
+    public LawNGTest() {
     }
-
+    
     @Test
-    public void creation() throws Exception {
-        Member m = new Member.Builder("Branwyn").lastName("Timmie").id("1254").age(20).build();
-        Assert.assertEquals(m.getFirstName(), "Branwyn");
-        Assert.assertEquals(m.getLastName(), "Timmie");
-        Assert.assertEquals(m.getId(), "1254");
-        Assert.assertEquals(m.getAge(), 20);
+    public void creation() throws Exception{
+        Law l = new Law.Builder("Criminal minds 101").id("85478").build();
+        Assert.assertEquals(l.getName(), "Criminal minds 101");
+        Assert.assertEquals(l.getId(), "85478");
     }
-
+    
     @Test
-    public void update() throws Exception {
-        Member newM = new Member.Builder("Frank").lastName("Lampard").id("1254").age(35).build();
-        Assert.assertEquals(newM.getFirstName(), "Frank");
-        Assert.assertEquals(newM.getLastName(), "Lampard");
-        Assert.assertEquals(newM.getAge(), 35);
+    public void update() throws Exception{
+        Law newLaw = new Law.Builder("Introduction to South African Law").id("85478").build();
+        Assert.assertEquals(newLaw.getName(), "Introduction to South African Law");
+        Assert.assertEquals(newLaw.getId(), "85478");
     }
 
     @BeforeClass
@@ -56,4 +53,5 @@ public class MemberNGTest {
     public void tearDownMethod() throws Exception {
     }
 
+    
 }

@@ -51,10 +51,10 @@ public final class Dvd {
             this.members = members;
             return this;
         }
-        
-        public Dvd build(){
+
+        public Dvd build() {
             return new Dvd(this);
-            
+
         }
 
     }
@@ -74,7 +74,6 @@ public final class Dvd {
     public List<Member> getMembers() {
         return members;
     }
-
 
     @Override
     public int hashCode() {
@@ -97,5 +96,5 @@ public final class Dvd {
         }
         return true;
     }
-    
+
 }

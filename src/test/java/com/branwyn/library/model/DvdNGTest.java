@@ -30,6 +30,15 @@ public class DvdNGTest {
         Assert.assertEquals(dvd.getTitle(), "The Expendables 2");
         Assert.assertEquals(dvd.getReleaseDate(), "17 August 2012");
     }
+    
+    @Test
+    public void update() throws Exception{
+        Dvd newDvd = new Dvd.Builder().id("585").title("Iron man").releaseDate("20 December 2013").build();
+        Assert.assertEquals(newDvd.getId(), "585");
+        Assert.assertEquals(newDvd.getTitle(), "Iron man");
+        Assert.assertEquals(newDvd.getReleaseDate(), "20 December 2013");
+    }
+    
     @BeforeClass
     public static void setUpClass() throws Exception {
     }
